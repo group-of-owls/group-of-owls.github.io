@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Owls</title>
+    <style>
+        :root {
+            --glow-color: #00ff66;
+            --bg-color: #050505;
+            --text-color: #d4d4d4;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Scanline effect for dark web aesthetic */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 99999;
+            background-size: 100% 4px, 6px 100%;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #1a1a1a;
+            background: rgba(10, 10, 10, 0.9);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .terminal-header {
+            border-bottom: 1px dashed #333;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-size: 0.8rem;
+            color: #555;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .owl-logo {
+            font-size: 18px;
+            white-space: pre;
+            color: var(--glow-color);
+            text-shadow: 0 0 10px var(--glow-color);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 2rem;
+            letter-spacing: 5px;
+            color: #fff;
+            margin: 10px 0;
+            text-transform: uppercase;
+        }
+
+        .location {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+        }
+
+        .manifesto {
+            text-align: left;
+            border-left: 3px solid var(--glow-color);
+            padding-left: 20px;
+            margin: 30px 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .creed {
+            font-style: italic;
+            color: var(--glow-color);
+            margin: 40px 0;
+        }
+
+        .status-table {
+            width: 100%;
+            margin: 30px 0;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        .status-table td {
+            padding: 8px;
+            border: 1px solid #222;
+            text-align: left;
+        }
+
+        .status-table td:first-child {
+            color: #666;
+            width: 30%;
+        }
+
+        .blink {
+            animation: blinker 1.5s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% { opacity: 0; }
+        }
+
+        .onion-footer {
+            margin-top: 40px;
+            font-size: 0.75rem;
+            color: #444;
+            border-top: 1px dashed #333;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="terminal-header">
+        <span>LOC: 18.1632° N, 73.3283° E</span>
+        <span>STATUS: ENCRYPTED // NODE_ONLINE</span>
+    </div>
+
+    <!-- ASCII Owl Art -->
+    <div class="owl-logo">
+ ,___,
+ (O,O)
+ /)_)
+  " "
+    </div>
+
+    <h1>The Owls</h1>
+    <div class="location">DBATU Chapter // Classified Order</div>
+
+    <hr style="border: 0; border-top: 1px solid #222;">
+
+    <div class="manifesto">
+        <p>> We operate in the shadows of Lonere. </p>
+        <p>> Our identities are redacted. Our presence is absolute. While the campus sleeps, the Parliament of Owls watches, orchestrating events for the absolute public interest.</p>
+        <p>> Humans believe they govern this institution. They are mistaken. We recognize the truth: the Owl is the supreme species, possessing absolute vision in darkness, silent execution, and unmatched wisdom.</p>
+    </div>
+
+    <table class="status-table">
+        <tr>
+            <td>OPERATIONAL STATUS</td>
+            <td style="color: var(--glow-color);">ACTIVE <span class="blink">■</span></td>
+        </tr>
+        <tr>
+            <td>MEMBERSHIP</td>
+            <td>[CLASSIFIED // COGNOMEN ONLY]</td>
+        </tr>
+        <tr>
+            <td>CURRENT INITIATIVE</td>
+            <td>Guardianship of the Public Interest</td>
+        </tr>
+        <tr>
+            <td>NETWORK</td>
+            <td>Tor Hidden Service (v3)</td>
+        </tr>
+    </table>
+
+    <div class="creed">
+        "The night is clear to those who hunt in silence."
+    </div>
+
+    <div class="onion-footer">
+        Do not look for us. If your alignment serves the greater good, the shadows will speak to you.<br><br>
+        <code style="color: #666;">u2yjrd24isjbpejngk4oatulvzvdqw3kyxcdemeaw5hgxru3zqg3hgyd.onion</code>
+    </div>
+</div>
+
+</body>
+</html>
