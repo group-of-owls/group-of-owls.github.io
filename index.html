@@ -11,12 +11,17 @@
             --text-color: #d4d4d4;
         }
 
+        /* Border-box resets prevent padding from breaking widths */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: 'Courier New', Courier, monospace;
             margin: 0;
-            padding: 0;
+            padding: 10px; /* Slight padding buffer for mobile screen edges */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -38,12 +43,14 @@
         }
 
         .container {
-            max-width: 800px;
+            width: 100%;
+            max-width: 800px; /* Scales down perfectly on mobile, limits out on desktop */
             padding: 20px;
             text-align: center;
             border: 1px solid #1a1a1a;
             background: rgba(10, 10, 10, 0.9);
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            margin: 20px 0;
         }
 
         .terminal-header {
@@ -53,7 +60,10 @@
             font-size: 0.8rem;
             color: #555;
             display: flex;
+            flex-direction: row;
             justify-content: space-between;
+            flex-wrap: wrap; /* Allows location and status to stack on tiny screens */
+            gap: 10px;
         }
 
         .owl-logo {
@@ -63,6 +73,7 @@
             text-shadow: 0 0 10px var(--glow-color);
             margin-bottom: 20px;
             line-height: 1.2;
+            display: inline-block; /* Keeps ASCII centralized and bounded */
         }
 
         h1 {
@@ -82,7 +93,7 @@
         .manifesto {
             text-align: left;
             border-left: 3px solid var(--glow-color);
-            padding-left: 20px;
+            padding-left: 15px;
             margin: 30px 0;
             font-size: 0.95rem;
             line-height: 1.6;
@@ -102,14 +113,14 @@
         }
 
         .status-table td {
-            padding: 8px;
+            padding: 10px 8px;
             border: 1px solid #222;
             text-align: left;
         }
 
         .status-table td:first-child {
             color: #666;
-            width: 30%;
+            width: 35%;
         }
 
         .blink {
@@ -126,6 +137,55 @@
             color: #444;
             border-top: 1px dashed #333;
             padding-top: 15px;
+            word-wrap: break-word; /* Crucial: Prevents the long .onion link from breaking layout */
+            word-break: break-all;
+        }
+        
+        .onion-link {
+            color: #666;
+            display: block;
+            margin-top: 10px;
+        }
+
+        /* Mobile Optimization Rules */
+        @media screen and (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+                letter-spacing: 3px;
+            }
+
+            .terminal-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 5px;
+            }
+
+            /* Transforms table to vertical blocks so data doesn't squish horizontally */
+            .status-table, .status-table tbody, .status-table tr, .status-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .status-table tr {
+                margin-bottom: 10px;
+                border: 1px solid #222;
+            }
+
+            .status-table td {
+                border: none;
+                padding: 6px 10px;
+            }
+
+            .status-table td:first-child {
+                width: 100%;
+                padding-top: 10px;
+                font-weight: bold;
+            }
+            
+            .status-table td:last-child {
+                padding-bottom: 10px;
+            }
         }
     </style>
 </head>
@@ -180,8 +240,8 @@
     </div>
 
     <div class="onion-footer">
-        Do not look for us. If your alignment serves the greater good, the shadows will speak to you.<br><br>
-        <code style="color: #666;">u2yjrd24isjbpejngk4oatulvzvdqw3kyxcdemeaw5hgxru3zqg3hgyd.onion</code>
+        Do not look for us. If your alignment serves the greater good, the shadows will speak to you.<br>
+        <code class="onion-link">u2yjrd24isjbpejngk4oatulvzvdqw3kyxcdemeaw5hgxru3zqg3hgyd.onion</code>
     </div>
 </div>
 
