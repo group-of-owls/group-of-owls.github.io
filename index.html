@@ -40,6 +40,9 @@
             z-index: 99999;
             background-size: 100% 4px, 6px 100%;
             pointer-events: none;
+            -webkit-text-size-adjust: 100%; /* Fixes Chrome/Safari font boosting */
+            -moz-text-size-adjust: 100%;    /* Fixes Firefox font boosting */
+            text-size-adjust: 100%;
         }
 
         .container {
